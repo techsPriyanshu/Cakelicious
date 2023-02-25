@@ -1,0 +1,92 @@
+
+   <div class="row ">
+    <h3 class="fs-4 mb-3" style="color: #f04506;">Products</h3>
+    <div class="col">
+        <nav class="navbar navbar-expand-lg navbar-light " style=" background-color: #f1dad0;
+">
+  <div class="container-fluid">
+    <a class="navbar-brand"  style="color:#f04506" (click)="product()" >All Products</a>
+    <a class="navbar-brand" style="color:#f04506">By Categories</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="navbarNav"  style="color:#ebbaa8; ">
+      <ul class="navbar-nav" *ngFor="let category of categoryList">
+        <li class="nav-item" >
+          <a class="nav-link active " style="color:#f04506" (click)="getProductOfCategory(category._id)" aria-current="page" >{{category.catName}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<nav class="navbar navbar-expand-lg navbar-light " style=" background-color: #f1dad0;">
+<div class="container-fluid">
+  <a class="navbar-brand"  style="color:#f04506" (click)="product()" >All Products</a>
+  <a class="navbar-brand" style="color:#f04506">By Occassion</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div  class="collapse navbar-collapse" id="navbarNav"  style="color:#f04506; ">
+    <ul class="navbar-nav" *ngFor="let occassion of occassionList">
+      <li class="nav-item" >
+        <a class="nav-link active " style="color:#f04506" (click)="getProductOfOccassion(occassion._id)" aria-current="page" >{{occassion.occName}}</a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+        <table class="table bg-white rounded shadow-sm  table-hover">
+            <thead>
+                <tr style="color:white; background-color:#f04506"  >
+                    <th scope="col" width="50">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+
+                    <th scope="col">Image</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody style="color:#f04506">
+
+
+                <tr *ngFor="let product of productList;index as i" >
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{product.prodName}}</td>
+                    <td>{{product.prodPrice}}</td>
+                    <td>{{product.prodDescription}}</td>
+                    <td><img src={{product.prodImage1}} width="100px"></td>
+                    <td><button class="button bg-transparent" style="border: none; background-color: white;" type="button"   data-bs-toggle="modal" data-bs-target="#dal">
+                        <i class="fa fa-edit"
+                        style="color:blue"></i>
+                      </button></td>
+                      <td> <button class="button bg-transparent"   style="border: none; background-color: white;" (click)="deleteProduct(product._id)"  type="button"  ><i class="fa fa-trash"
+                        style="color:red"></i></button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

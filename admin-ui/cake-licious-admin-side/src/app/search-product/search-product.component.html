@@ -1,0 +1,36 @@
+<table class="table bg-white rounded shadow-sm  table-hover">
+  <thead>
+      <tr style="color:white; background-color:#f38379"  >
+          <th scope="col" width="50">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Flavour</th>
+          <th scope="col">Discount</th>
+          <th scope="col">Image</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+      </tr>
+  </thead>
+  <tbody style="color:#f38379">
+
+
+      <tr *ngFor="let product of productList;index as i" [class.offset-1]="i%3!=0" [class.manage-left-margin]="i%3==0">
+          <th scope="row">{{i+1}}</th>
+          <td>{{product.prodName}}</td>
+          <td>{{product.prodPrice}}</td>
+          <td>{{product.prodDescription}}</td>
+          <td>{{product.flavour}}</td>
+          <td>{{product.discount}}</td>
+          <td><img src={{product.prodImage1}} width="100px"></td>
+          <td><button class="button bg-transparent" style="border: none; background-color: white;" type="button"   data-bs-toggle="modal" data-bs-target="#dal">
+              <i class="fa fa-edit"
+              style="color:blue"></i>
+            </button></td>
+            <td> <button class="button bg-transparent"   style="border: none; background-color: white;" (click)="deleteProduct(product._id)"  type="button"  ><i class="fa fa-trash"
+              style="color:red"></i></button></td>
+      </tr>
+
+
+  </tbody>
+</table>

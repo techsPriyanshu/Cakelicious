@@ -1,0 +1,30 @@
+<div class="row">
+  <h3 class="fs-4 mb-3 " style="color:#f04506;">Feedbacks</h3>
+  <div class="col">
+      <table class="table bg-white rounded shadow-sm  table-hover text">
+
+          <thead>
+              <tr class="text" style="color:white; background-color:#f04506"   >
+                  <th scope="col" >S NO.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Feedback</th>
+
+              </tr>
+          </thead>
+          <tbody style="color:#f04506;"  >
+              <tr *ngFor="let feedback of feedbackList; index as i">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{feedback.customer.name}}</td>
+                  <td>{{feedback.customer.email}}</td>
+                  <td>{{feedback.query}}</td>
+
+
+              </tr>
+
+
+          </tbody>
+      </table>
+  </div>
+</div>
+

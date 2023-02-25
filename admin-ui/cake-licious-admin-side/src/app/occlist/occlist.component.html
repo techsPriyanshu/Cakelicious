@@ -1,0 +1,29 @@
+<div class="row">
+    <h3 class="fs-4 mb-3" style="color: #f04506;">Occassions</h3>
+    <div class="col">
+        <table class="table bg-white rounded shadow-sm  table-hover text">
+
+            <thead>
+                <tr class="text" style="color:white; background-color:#f04506"   >
+                    <th scope="col">S NO.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Banner</th>
+
+
+                </tr>
+            </thead>
+            <tbody style="color:#f04506;"  >
+                <tr *ngFor="let occasion of occasionList; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{occasion.occName}}</td>
+                    <td >{{occasion.occDescription}}</td>
+                    <td ><img src={{occasion.occImage}} width="100px"></td>
+                    <td ><img src={{occasion.occBanner}} width="100px"></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,245 @@
+<h2 style="color: #f04506;">Product Information</h2>
+<div class="container mb-5" style=" border-radius: 5px;   background-color: #ffffff">
+
+  <div class="container" >
+
+    <table class="table table-borderless table-responsive card-1 p-4">
+  <thead  style="color: #f04506;">
+
+  <tr class="border-bottom">
+
+  <th>
+  <span class="ml-2">S.NO.</span>
+  </th>
+  <th>
+  <span class="ml-2">Image</span>
+  </th>
+  <th>
+  <span class="ml-2">Quantity</span>
+  </th>
+  <th>
+  <span class="ml-2">Total</span>
+  </th>
+
+  </tr>
+  </thead>
+  <tbody  style="color: #f04506;">
+  <tr *ngFor="let item of orderList.orderedItem" class="border-bottom">
+  <td>
+  <div class="p-2">
+      <span class="d-block font-weight-bold"></span>
+    1.
+  </div>
+  </td>
+  <td>
+<div  >
+      <img src= {{item.ProductId.prodImage1}} width="100" class="rounded-circle">
+
+     <span class="d-block font-weight-bold">{{orderList.orderedItem[0].ProductId.prodName}}</span>
+    </div>
+
+    
+
+
+
+  </td>
+  <td>
+    <div  class="quantity buttons_added">
+      {{item.Qty}}
+    </div>
+  </td>
+  <td>
+  <div class="p-2 d-flex flex-column">
+{{orderList.total}}
+  </div>
+  </td>
+
+  </tr>
+</tbody>
+  </table>
+
+
+  </div>
+  </div>
+
+  <h2 class="in mt-5" style="color: #f04506;">Method Information</h2>
+  <div class="container  mb-5" style=" border-radius: 5px;   background-color: #ffffff">
+
+    <div class="container" >
+
+      <table class="table table-borderless table-responsive card-1 p-4">
+    <thead  style="color: #f04506;">
+    <tr class="border-bottom">
+    <th>
+    <span class="ml-2">Payment ID</span>
+    </th>
+    <th>
+    <span class="ml-2">Oredr ID</span>
+    </th>
+    <th>
+    <span class="ml-2">Method</span>
+    </th>
+
+    </tr>
+    </thead>
+    <tbody  style="color: #f04506;">
+    <tr class="border-bottom">
+    <td>
+
+     {{orderList.alterMobile}}
+
+    </td>
+    <td>
+      {{orderList.orderId}}
+    </td>
+    <td>
+
+    {{orderList.paymentMethod}}
+
+    </td>
+
+    </tr>
+  </tbody>
+    </table>
+
+
+    </div>
+</div>
+
+
+
+<h2 class="inf mt-5" style="color: #f04506;">Customer Information</h2>
+
+<div class="container  mb-5 " style=" border-radius: 5px; background-color: #ffffff; color: #f04506;">
+
+  <div class="container" >
+
+    <table class="table table-borderless table-responsive card-1 p-4">
+  <thead style="color: #f04506;">
+  <tr class="border-bottom">
+  <th>
+  <span class="ml-2">Name</span>
+  </th>
+  <th>
+  <span class="ml-2">Email</span>
+  </th>
+  <th>
+  <span class="ml-2">Mobile</span>
+  </th>
+
+  </tr>
+  </thead>
+  <tbody  style="color: #f04506;">
+  <tr class="border-bottom">
+  <td>
+  <div class="p-2">
+{{orderList.customer.name}}
+  </div>
+  </td>
+  <td>
+    <div class="p-2">
+      {{orderList.customer.email}}
+    </div>
+  </td>
+  <td>
+  <div class="p-2">
+    {{orderList.customer.mobile}}
+  </div>
+  </td>
+
+  </tr>
+</tbody>
+  </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<h3>{{ name}}</h3>
+
+ <div class="container">
+ <span *ngFor="let item of counts;let i = index">
+   <span class="circle-desc " [class.circle-desc-active]="orderStatus == item">{{ item }}</span>
+   <span class="circles" [class.active]="orderStatus == item"></span>
+   <span class="bar" *ngIf="(i != counts.length-1)"></span>
+ </span>
+ </div>
+
+<style>
+  .button {
+    border-radius: 4px;
+    background-color: #f04506;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  </style>
+
+
+
+  <button class="button mt-5"  data-bs-toggle="modal" data-bs-target="#see" style="margin-left: 40%;"><span>Update Status </span></button>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade " id="see" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"style="  background-color: #fff5f2;
+  ">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <select id="Status"    (change)="getVal($event)">
+          <option value="option" >Select Option</option>
+          <option value="Preparing" >Preparing</option>
+          <option value="Out For Delivery">Out For Delivery</option>
+          <option value="Delivered" >Delivered</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light" (click)="updateSta()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

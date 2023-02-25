@@ -1,0 +1,29 @@
+<div class="row ">
+    <h3 class="fs-4 mb-3" style="color: #f04506;">Recent Orders</h3>
+    <div class="col">
+        <table class="table bg-white rounded shadow-sm  table-hover text">
+
+            <thead>
+                <tr class="text" style="color:white; background-color:#f04506"   >
+                    <th scope="col">S No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+
+                </tr>
+            </thead>
+            <tbody style="color:#f04506;"  >
+                <tr *ngFor="let customer of customerList ; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.mobile}}</td>
+
+
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

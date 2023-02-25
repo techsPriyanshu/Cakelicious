@@ -1,0 +1,259 @@
+<div *ngFor="">
+
+</div>
+<div class="d-flex"  id="wrapper" #wrapper>
+
+  <div class="bg-white" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom" ><i
+        class="image"><img src="../assets/download.png" width="100px" height="auto"></i></div>
+      <div class="list-group list-group-flush my-3">
+          <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-warning" ><i
+               style="color: #f04506;"   class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                  <div class="dropdown">
+                    <a   data-bs-toggle="dropdown" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-project-diagram me-2"></i>Category</a>
+
+                    <ul routerLink="catlist" class="dropdown-menu m-3" style="background-color:#ffffff; color: #f04506;">
+                      <li><a class="dropdown-item" style="color: #f04506; " >View Category</a></li>
+                      <li><a class="dropdown-item" style="color: #f04506; " data-bs-toggle="modal" data-bs-target="#exampleModal">Add Category</a></li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <a   data-bs-toggle="dropdown" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-gift me-2"></i>Product</a>
+
+                    <ul class="dropdown-menu m-3" style="background-color:#ffffff;">
+                      <li><a class="dropdown-item" style="color: #f04506; " routerLink="prodlist" >View Product</a></li>
+                      <li><a class="dropdown-item" style="color: #f04506; " data-bs-toggle="modal" data-bs-target="#Modalexample">Add Product</a></li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <a   data-bs-toggle="dropdown" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-gift me-2"></i>Flavour</a>
+
+                    <ul class="dropdown-menu m-3" style="background-color:#ffffff;">
+                      <li><a class="dropdown-item" style="color: #f04506; " routerLink="flavor" >View Flavour</a></li>
+                      <li><a class="dropdown-item" style="color: #f04506; " data-bs-toggle="modal" data-bs-target="#flavour">Add Flavour</a></li>
+                    </ul>
+                  </div>
+          <a routerLink="customerlist" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                  class="fas fa-chart-line me-2"></i>Customer</a>
+
+          <a routerLink="orderlist" class="list-group-item list-group-item-action second-text fw-bold abc"><i
+                  class="fas fa-shopping-cart me-2"></i>Order</a>
+                  <a routerLink="feedbackList" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-shopping-cart me-2"></i>Feedback</a>
+          <a routerLink="queryList" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                  class="fas fa-comment-dots me-2"></i>Queries</a>
+
+
+                  <div class="dropdown">
+                    <a  data-bs-toggle="dropdown" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                      class="fas fa-map-marker-alt me-2 "></i>Occassion</a>
+                    <ul class="dropdown-menu m-3" style="background-color:#ffffff;">
+                      <li><a class="dropdown-item" style="color: #f04506; " routerLink="occlist"  >View Occassion</a></li>
+                      <li><a class="dropdown-item" style="color: #f04506;  " data-bs-toggle="modal" data-bs-target="#occassion">Add Occasion</a></li>
+                    </ul>
+                </div>
+      </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent px-4">
+          <div class="d-flex align-items-center">
+              <i  (click)="show(wrapper)" class="fas fa-align-left fs-4 me-3" style="color: #f04506;" id="menu-toggle"></i>
+              <h2  class="fs-2 m-0" style="color: #f04506;">Dashboard </h2>
+          </div>
+          <div class="input-group m-5">
+            <input (keyup)="searchProduct($event)" class="form-control border rounded-pill" type="search" placeholder="Search here......" id="example-search-input" style="color:#f04506;">
+        </div>
+
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto ">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle second-text fw-bold" style="color: #f04506;" href="#" id="navbarDropdown"
+                          role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-user me-2 " style="color: #f04506;"></i>Admin
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                          <li><a class="dropdown-item" (click)="signout()">Logout</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <div class="container-fluid px-4" >
+
+
+        <router-outlet></router-outlet>
+
+
+      </div>
+
+
+
+      </div>
+
+
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="  background-color: #fff5f2;
+
+    ">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="exampleModalLabel">Add Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="form-floating mb-3 m-3" style="width:80%">
+            <input [(ngModel)]="catName" type="catname" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating m-3" style="width:80%">
+            <input  (change)="selectCatImage($event)"  type="file" class="form-control" id="floatingImage">
+            <label for="floatingPassword">Image</label>
+          </div>
+        <div class="modal-footer">
+            <button type="button" (click)="addCategory()" class="btn btn-outline-success">Add</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="occassion" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="  background-color: #fff5f2;
+
+    ">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="exampleModalLabel">Add Occassion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="form-floating mb-3 m-3" style="width:80%">
+            <input type="catname" class="form-control"[(ngModel)]="occName" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mb-3 m-3" style="width:80%">
+            <input type="catname" class="form-control" [(ngModel)]="occDescription" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Description</label>
+          </div>
+          <div class="form-floating m-3" style="width:80%">
+            <input multiple  [(ngModel)]="occImages" name="image" (change)="selectOccImage($event)"  type="file" class="form-control" id="floatingImage">
+
+          </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success" (click)="addOcc()" >Add</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button></div>
+      </div>
+    </div>
+  </div>
+
+  <form #regform="ngForm">
+  <div class="modal fade" id="Modalexample" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content" style="  background-color: #fff5f2;
+
+    ">
+        <div class="form-group">
+
+        </div>
+
+        <div class="modal-header">
+          <h5 class="modal-title text-dark"  id="exampleModalLabel">Add Product</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+        </div>
+         <label style="margin-left: 50px;">Category</label>
+        <select #catDiv name="categoryId" class="form-control m-auto mb-3" style="width:80%;">
+          <option>Select</option>
+          <option  *ngFor="let category of categoryList"  value="{{category._id}}" style="width: 50px;" name="cid">{{category.catName}} </option>
+       </select>
+       <label style="margin-left: 50px;">Occassion</label>
+
+       <select #occDiv name="categoryId" class="form-control m-auto" style="width:80%;">
+        <option>Select</option>
+        <option  *ngFor="let occ of occasionList"  value="{{occ._id}}" name="cid">{{occ.occName}} </option>
+     </select>
+     <label style="margin-left: 50px; margin-top: 10px;">Flavour</label>
+     <select #flavourDiv name="flavourId" class="form-control m-auto" style="width:80%;">
+      <option>Select</option>
+      <option  *ngFor="let flavour of flavourList"  value="{{flavour._id}}" name="cid">{{flavour.flavourname}} </option>
+   </select>
+      <div class="form-floating mb-3 mt-3  m-auto" style="width:80%; margin-top: 10px;">
+        <input type="text" [(ngModel)]="prodName" class="form-control" name="name" id="floatingInput" placeholder="Name">
+        <label for="floatingInput">Name </label>
+      </div>
+      <div class="form-floating m-3 mt-3 m-auto" style="width:80%">
+        <input type="text"[(ngModel)]="prodPrice" class="form-control" name="price" id="floatingImage"placeholder="price">
+        <label for="floatingPassword">Price</label>
+      </div>
+      <div class="form-floating mb-3 m-3 mt-3 m-auto" style="width:80%">
+        <input type="text" [(ngModel)]="prodDescription" class="form-control m-auto" name="desc" id="floatingInput" placeholder="Name">
+        <label for="floatingInput"> Description</label>
+      </div>
+      <div class="form-floating mb-3 m-3 mt-3 m-auto" style="width:80%">
+        <input type="text"[(ngModel)]="discount" class="form-control m-auto" name="discount" id="floatingInput" placeholder="Name">
+        <label for="floatingInput"> Discount</label>
+      </div>
+
+      <div class="form-floating mb-3 m-3 mt-3 m-auto"  style="width:80%">
+        <input  type="file" class="form-control" accept="image/*" class="hh m-auto" ng-modle="file"  multiple  [(ngModel)]="prodImages" name="image" (change)="selectProdImage($event)" id="floatingInput" placeholder="Name">
+
+      </div>
+    <div class="modal-footer">
+        <button type="button" (click)="addProd()"  class="btn btn-outline-success">Add</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button></div>
+  </div>
+      </div>
+
+
+  </div>
+
+  </form>
+
+  <div class="modal fade" id="flavour" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="  background-color: #fff5f2;
+
+    ">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="exampleModalLabel">Add Flavour</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="form-floating mb-3 m-3" style="width:80%">
+            <input [(ngModel)]="catName" type="catname" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating m-3" style="width:80%">
+            <input    type="file" class="form-control" id="floatingImage">
+            <label for="floatingPassword">Image</label>
+          </div>
+        <div class="modal-footer">
+            <button type="button"  class="btn btn-outline-success">Add</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+

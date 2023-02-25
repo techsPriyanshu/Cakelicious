@@ -1,0 +1,64 @@
+<div class="row ">
+    <h3 class="fs-4 mb-3" style="color: #f04506;">Category</h3>
+    <div class="col">
+        <table class="table bg-white rounded shadow-sm  table-hover text">
+
+            <thead>
+                <tr class="text" style="color:white; background-color:#f04506"   >
+                    <th scope="col" >S NO.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody style="color:#f04506;"  >
+                <tr *ngFor="let category of categoryList; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{category.catName}}</td>
+                    <td><img src={{category.catImage}} width="100px"></td>
+                    <td><button class="button bg-transparent" style="border: none; background-color: white;" type="button"  (click)="updateCategory(category)"   data-bs-toggle="modal" data-bs-target="#Mod">
+                        <i class="fa fa-edit"
+                        style="color:blue"></i>
+                      </button></td>
+                      <td> <button class="button bg-transparent" (click)="deleteCategory(category._id)" style="border: none; background-color: white;" type="button"  ><i class="fa fa-trash"
+                        style="color:red"></i></button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="Mod" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="  background-color: #fff5f2;
+    ">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="exampleModalLabel">Update Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="form-floating m-3">
+            <input  [(ngModel)]="catName"   type="text" class="form-control" id="floatingName">
+            <label for="floatingPassword">Name</label>
+          </div>
+          <div class="modal-body">
+            <label class="form-label" for="">Old Image</label>
+            <div class="form-group"><img [src]="oldImage" width="80px" height="80px" alt=""></div>
+          </div>
+          <div class="form-floating m-3" style="width:80%">
+            <input  (change)="selectImage($event)"  type="file" class="form-control" id="floatingImage">
+            <label for="floatingPassword">Image</label>
+          </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-warning" (click)="edit()">Upadte</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancle</button></div>
+      </div>
+    </div>
+  </div>

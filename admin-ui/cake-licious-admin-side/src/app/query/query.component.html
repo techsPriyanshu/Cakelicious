@@ -1,0 +1,62 @@
+<div class="row">
+  <h3 class="fs-4 mb-3" style="color: #f04506;">Queries</h3>
+  <div class="col">
+      <table class="table bg-white rounded shadow-sm  table-hover text">
+
+          <thead>
+              <tr class="text" style="color:white; background-color:#f04506"   >
+                  <th scope="col" >S NO.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Query</th>
+                  <th scope="col">Reply</th>
+              </tr>
+          </thead>
+          <tbody style="color:#f04506;"  >
+              <tr *ngFor="let query of queryList; index as i">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{query.customer.name}}</td>
+                  <td>{{query.customer.email}}</td>
+                  <td>{{query.query}}</td>
+                  <td><button data-bs-toggle="modal" data-bs-target="#ee" class="button bg-transparent"  (click)="q(query)"    style="border: none; background-color: white;" type="button" >
+                      <i class="fa fa-comment-dots"
+                      style="color:blue"></i>
+                    </button></td>
+
+              </tr>
+
+
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="modal fade " id="ee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"style="  background-color: #f38379;
+    background-image: linear-gradient(315deg, #ffffff 0%, #f38379 74%)
+  ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label class="dvf m-lg-3">Query</label><br>
+        <div class="form-floating m-3" style="width:80%">
+
+          <input disabled  type="text"  [(ngModel)]="query"  class="form-control" id="floatingImage">
+          <label for="floatingPassword"></label>
+        </div>
+        <label class="dvf m-lg-3">Reply</label><br>
+        <textarea rows="3" cols="50" placeholder="Reply" style=" margin-left: 15px" name="comment" form="usrform" [(ngModel)]="comment">
+        </textarea>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button"  data-bs-dismiss="modal" class="btn btn-light">reply</button>
+      </div>
+    </div>
+  </div>
+</div>

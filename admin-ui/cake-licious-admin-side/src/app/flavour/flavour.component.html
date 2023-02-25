@@ -1,0 +1,30 @@
+<div class="row">
+  <h3 class="fs-4 mb-3" style="color: #f04506;">Flavours</h3>
+  <div class="col">
+      <table class="table bg-white rounded shadow-sm  table-hover text">
+
+          <thead>
+              <tr class="text" style="color:white; background-color:#f04506"   >
+                  <th scope="col">S NO.</th>
+                  <th scope="col">Name</th>
+
+                  <th scope="col">Image</th>
+
+                  <th scope="col">Delete</th>
+
+              </tr>
+          </thead>
+          <tbody style="color:#f04506;"  >
+              <tr *ngFor="let flavour of flavourList;index as i">
+                  <th scope="row"></th>
+                  <td>{{i+1}}</td>
+                  <td >{{flavour.flavourname}}</td>
+                  <td ><img src={{flavour.flavourimage}} width="100px"></td>
+
+                  <td> <button class="button bg-transparent"   style="border: none; background-color: white;"   type="button"  ><i class="fa fa-trash"
+                    style="color:red"></i></button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+.nav-item:hover {
+  text:#f04506;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px #f04506;
+  }

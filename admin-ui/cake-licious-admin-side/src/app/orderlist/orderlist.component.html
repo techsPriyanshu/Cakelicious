@@ -1,0 +1,38 @@
+<div class="row">
+    <h3 class="fs-4 mb-3" style="color: #f04506;">Recent Orders</h3>
+    <div class="col">
+        <table class="table bg-white rounded shadow-sm  table-hover text">
+
+            <thead>
+                <tr class="text" style="color:white; background-color:#f04506"   >
+                    <th scope="col" width="50">S.NO.</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Email</th>
+                     <th scope="col">Date</th>
+                    <th scope="col">View Details</th>
+                </tr>
+            </thead>
+            <tbody style="color:#f04506;"  >
+                <tr *ngFor="let order of orderList; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{order.orderId}}</td>
+                    <td>{{order.orderedItem[0].Qty}}</td>
+                    <td>{{order.orderStatus}}</td>
+                    <td>{{order.customer.email}}</td>
+                    <td>{{order.orderedAt}}</td>
+
+                    <td > <button   class="button bg-transparent" routerLink="/order/{{order._id}}" style="border: none; background-color:
+                     white;" type="button"  ><i  class="fa fa-eye"
+                      style="color:#f04506"></i></button></td>
+                </tr>
+
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

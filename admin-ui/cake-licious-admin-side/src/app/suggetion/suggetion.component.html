@@ -1,0 +1,184 @@
+<div class="card shadow-0 border mb-4">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <img
+          src="../../assets/image-removebg-preview (19).png"
+          class="img-fluid"
+          alt="Phone"
+          style="width: 100px; height: 100px"
+        />
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0">Exotic Cake</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0">2000</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0 small">2 More Items</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card shadow-0 border mb-4">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <img
+          src="../../assets/image-removebg-preview (19).png"
+          class="img-fluid"
+          alt="Phone"
+          style="width: 100px; height: 100px"
+        />
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0">Exotic Cake</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0">2000</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <p class="text-muted mb-0 small">2 More Items</p>
+      </div>
+      <div
+        class="col-md-2 text-center d-flex justify-content-center align-items-center"
+      >
+        <button class="btn">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- -------------------------------order details--------------------------------- -->
+
+
+
+<section class="vh-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-10 col-lg-8 col-xl-6" style="width: 100%">
+        <div class="card card-stepper" style="border-radius: 16px">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h3 class="text-muted mb-2">
+                  Product Details<span class="fw-bold text-body"></span>
+                </h3>
+              </div>
+              <div>
+                <h3 class="mb-0">
+                  <a
+                    href="#"
+                    style="color: rgb(66, 23, 23); text-decoration: none"
+                    >Priyanshu Pathak</a
+                  >
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4 mt-5">
+            <div class="d-flex flex-row pb-5">
+              <div>
+                <img
+                  class="align-self-center img-fluid mt-0"
+                  src="../../assets/image-removebg-preview (19).png"
+                  width="250"
+                />
+              </div>
+
+              <div class="flex-fill mt-5 pt-4" style="margin-right: 5%">
+                <h5 class="bold">Choclate Cake</h5>
+                <p class="text-muted">Qt: 2 item</p>
+                <h4 class="mb-3">
+                  ₹ 2999 <span class="small text-muted"></span>
+                </h4>
+                <p class="text-muted">
+                  Tracking Status on: <span class="text-body">11:30pm</span>
+                </p>
+              </div>
+
+              <div class="flex-fill mt-5 pt-4" style="margin-right: 5%">
+                <h5 class="bold">Payment Method</h5>
+                <p class="text-muted">Cash On Delivery</p>
+
+                <h5 class="bold">Order Id</h5>
+                <p class="text-muted">1015290</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="card-body p-4 mt-5">
+            <div class="d-flex flex-row pb-5">
+              <div>
+                <img
+                  class="align-self-center img-fluid mt-0"
+                  src="../../assets/image-removebg-preview (19).png"
+                  width="250"
+                />
+              </div>
+
+              <div class="flex-fill mt-5 pt-4" style="margin-right: 5%">
+                <h5 class="bold">Choclate Cake</h5>
+                <p class="text-muted">Qt: 2 item</p>
+                <h4 class="mb-3">
+                  ₹ 2999 <span class="small text-muted"></span>
+                </h4>
+                <p class="text-muted">
+                  Tracking Status on: <span class="text-body">11:30pm</span>
+                </p>
+              </div>
+
+              <div class="flex-fill mt-5 pt-4" style="margin-right: 5%">
+                <h5 class="bold">Payment Method</h5>
+                <p class="text-muted">Cash On Delivery</p>
+
+                <h5 class="bold">Order Id</h5>
+                <p class="text-muted">1015290</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer p-4">
+            <div class="container justify-content-center" style="width: 100%">
+              <span *ngFor="let item of counts; let i = index">
+                <span
+                  class="circle-desc"
+                  [class.circle-desc-active]="orderStatus == item"
+                  >{{ item }}</span
+                >
+                <span
+                  class="circles"
+                  [class.active]="orderStatus == item"
+                ></span>
+                <span class="bar" *ngIf="i != counts.length - 1"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
